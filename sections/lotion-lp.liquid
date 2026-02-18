@@ -1,0 +1,13 @@
+<h1>{{page.title}}</h1>
+<p>{{page.content}}</p>
+
+{%  assign collection = collections['colecao-locoes'] %}
+
+<h2>{{ collection.title }}</h2>
+<h3>{{ collection.description }}</h3>
+
+{% for product in collection.products %}
+      <p><b>{{ product.title }}</b></p>
+      <p><b>{{ product.price |  money }}</b></p>
+      <img src="{{ product.featured_image.src |  image_url: width: '50px' }}" alt="product.featured_image.alt">
+{% endfor %}

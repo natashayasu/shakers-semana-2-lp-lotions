@@ -1,0 +1,9 @@
+{
+    "sections": {
+        "lotion": {
+            "type": "lotion-lp",
+            "settings": {}
+        }
+    },
+    "order": ["lotion"]
+}
