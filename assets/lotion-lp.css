@@ -13,6 +13,10 @@ body {
     color: #4A4A4A;
 }
 
+h1, #content {
+    text-align: center;
+}
+
 
 #collection-title {
     text-align: center;
@@ -94,4 +98,20 @@ body {
     margin-bottom: 10px;
     flex-grow: 1;
     text-align: left;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 12px;
+  border-radius: 20px;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333;
 }
