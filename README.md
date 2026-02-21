@@ -166,9 +166,7 @@ O vídeo apresenta:
 * Fluxo de Git (branch, commits e PR)
 
 Link do vídeo:
-........................
-
----
+https://drive.google.com/file/d/1iytEnzZco2vG3fWr9VpbwS3YxAFChHvb/view?usp=drive_link
 
 ## 📊 Critérios técnicos atendidos
 
