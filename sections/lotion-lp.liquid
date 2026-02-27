@@ -1,13 +1,67 @@
-<h1>{{page.title}}</h1>
-<p>{{page.content}}</p>
+{{ 'lotion-lp.css' | asset_url | stylesheet_tag }}
 
-{%  assign collection = collections['colecao-locoes'] %}
+<h1>{{ page.title }}</h1>
+<div id="content">{{ page.content }}</div>
 
-<h2>{{ collection.title }}</h2>
-<h3>{{ collection.description }}</h3>
+{% assign product = all_products[section.settings.featured_product] %}
 
-{% for product in collection.products %}
-      <p><b>{{ product.title }}</b></p>
-      <p><b>{{ product.price |  money }}</b></p>
-      <img src="{{ product.featured_image.src |  image_url: width: '50px' }}" alt="product.featured_image.alt">
-{% endfor %}
+<main>
+      <section class="featured-product">
+            <div class="featured-info">
+                  <h2>produto especial</h2>
+                  <h3><b>{{ product.title }}</b></h3>
+                  <p><b>{{ product.price | money }}</b></p>
+                  <p>{{ product.description }}</p>
+            </div>
+            
+
+            <a href="{{ product.url }}">
+            <img 
+                  src="{{ product.featured_image | image_url: width: 800 }}" 
+                  alt="{{ product.featured_image.alt }}">
+            </a>
+      </section>
+
+
+      {% assign collection = collections[section.settings.featured_collection] %}
+
+     <span id="collection-title"> <h2>{{ collection.title }}</h2></span>
+
+      <section class="collection">
+            {% for product in collection.products %}
+                  <div class="product">
+                        <a href="{{ product.url }}">
+                        <img 
+                        src="{{ product.featured_image | image_url: width: 200 }}" 
+                        alt="{{ product.featured_image.alt }}">
+                        </a>
+
+                        <p><b>{{ product.title }}</b></p>
+                        <p><b>{{ product.price | money }}</b></p>
+
+                         <a href="{{ product.url }}" class="btn-primary">
+                              Comprar agora
+                        </a>
+                  </div>
+            {% endfor %}
+      </section>     
+</main>
+
+
+{% schema %}
+{
+  "name": "Lotion Landing Page",
+  "settings": [
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Produto Principal"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Coleção Principal"
+    }
+  ]
+}
+{% endschema %}
